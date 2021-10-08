@@ -10,22 +10,25 @@ public class SlidingDoor : MonoBehaviour
 
     private void Start()
     {
-        doorAnimator.SetTrigger("Close");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (canBeOpened)
-        {
-            doorAnimator.SetTrigger("Open");
+        if (other.CompareTag("Player")){
+            if (canBeOpened)
+            {
+                doorAnimator.SetTrigger("Open");
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (canBeOpened)
-        {
-            doorAnimator.SetTrigger("Close");
+        if (other.CompareTag("Player")){
+            if (canBeOpened)
+            {
+                doorAnimator.SetTrigger("Close");
+            }
         }
     }
 }
